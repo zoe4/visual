@@ -4,6 +4,9 @@ import router from './router'
 import plugins from './util/plugins'
 import api from './request/api'
 Vue.prototype.$api = api
+import { Table, TableColumn } from 'element-ui'
+Vue.component(Table.name, Table);
+Vue.component(TableColumn.name, TableColumn);
 
 Vue.use(plugins)
 

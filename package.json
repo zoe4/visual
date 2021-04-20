@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "babel-plugin-component": "^1.1.1",
     "core-js": "^3.6.5",
     "echarts": "^5.1.0",
+    "element-ui": "^2.15.1",
     "qs": "^6.10.1",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
