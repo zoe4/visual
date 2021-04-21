@@ -8,20 +8,34 @@
 <script>
 export default {
   name: "BarHor",
-  props: {},
+  props: {
+    data: {
+      type: Object,
+      default: () => {},
+    },
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data(val) {
+      this.drawChart(val);
+    },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
-    drawChart() {
+    drawChart(data) {
       let chartDom = this.$refs.barHor;
-      
+
+      console.log("data111", data);
+      let bgData = data.yData.map(e => {
+        let max = Math.max(...data.yData);
+        return max+10
+      })
+
+      let colorBar=['#a800ff','#33ddf8','#2473ef','#33ddf8','#2473ef'];
+      let colorBg=['rgba(168,0,255,0.4)','rgba(51,211,248,0.4)','rgba(36,15,239,0.4)','rgba(51,211,248,0.4)','rgba(36,15,239,0.4)'];
+
       let option = {
         grid: {
           left: "5%",
@@ -72,7 +86,7 @@ export default {
             axisLine: {
               show: false,
             },
-            data: ["大米", "玉米", "蔬菜", "鸡蛋", "坚果"],
+            data: data.xData,
           },
           {
             type: "category",
@@ -85,40 +99,44 @@ export default {
                 color: "#ffffff",
                 fontSize: "12",
               },
-              formatter: function (value) {
-                if (value >= 10000) {
-                  return (value / 10000).toLocaleString() + "万";
-                } else {
-                  return value.toLocaleString();
-                }
-              },
+              // formatter: function (value) {
+              //  return value
+              // },
             },
-            data: [50000000, 22000000, 10000000, 5000000, 1],
+            data: data.yData,
           },
         ],
         series: [
           {
-            name: "金额",
+            name: "数量",
             type: "bar",
             zlevel: 1,
             itemStyle: {
               normal: {
                 barBorderRadius: 30,
-                color: this.$linearColor('#ffed00','#ff8104'),
+                // color: this.$linearColor("#ffed00", "#ff8104"),
+                color: function(params) {
+                        var num = colorBar.length;
+                        return colorBar[params.dataIndex % num]
+                    },
               },
             },
-            barWidth: 20,
-            data: [50000000, 22000000, 10000000, 5000000, 1],
+            barWidth: 10,
+            data: data.yData,
           },
           {
-            name: "背景",
+            name: "",
             type: "bar",
-            barWidth: 20,
+            barWidth: 10,
             barGap: "-100%",
-            data: [50000000, 50000000, 50000000, 50000000, 1],
+            data: bgData,
             itemStyle: {
               normal: {
-                color: "rgba(24,31,68,1)",
+                // color: "rgba(24,31,68,1)",
+                color: function(params) {
+                        var num = colorBg.length;
+                        return colorBg[params.dataIndex % num]
+                    },
                 barBorderRadius: 30,
               },
             },

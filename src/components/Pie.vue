@@ -8,38 +8,34 @@
 <script>
 export default {
   name: "Pie",
-  props: {},
+  props: {
+    data: {
+      type: Array,
+      default: () => [],
+    },
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data(val) {
+      this.drawChart(val);
+    },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
-    drawChart() {
+    drawChart(data) {
       let chartDom = this.$refs.pie;
 
-      let names = ["屠宰", "兽药", "诊疗", "调运", "饲料", "其他"];
-      let values = [300, 200, 150, 120, 100, 50];
+      
       let colorList = [
-        "#03acd1",
-        "#04cab7",
-        "#03c781",
-        "#fce348",
-        "#fc2d8a",
-        "#0292fe",
+        "#0eceff",
+        "#264cee",
+        "#5e2ae8",
+        "#3a15d8",
+        "#0040f9",
+        "#0e74ff",
       ];
-      let data = [];
-      for (let i = 0; i < names.length; i++) {
-        data.push({
-          name: names[i],
-          value: values[i],
-        });
-      }
-      data.reverse();
       // 公用调整
       let itemStyle = {
         normal: {
@@ -61,21 +57,21 @@ export default {
           },
           title: [
             {
-              text: "30日",
+              text: "+10%",
               x: "50%",
               y: "40%",
               textStyle: {
-                color: "#559dbd",
+                color: "#0e74ff",
                 fontSize: 20,
               },
             },
             {
-              text: "半年",
+              text: "同比",
               x: "50%",
               y: "55%",
               textStyle: {
-                color: "#559dbd",
-                fontSize: 20,
+                color: "#fff",
+                fontSize: 14,
               },
             },
           ],
@@ -84,7 +80,7 @@ export default {
             right: "0%",
             textStyle: {
               color: "#f2f2f2",
-              fontSize: 16,
+              fontSize: 12,
             },
             icon: "roundRect",
             data: data,
@@ -111,10 +107,10 @@ export default {
               label: {
                 normal: {
                   show: true,
-                  formatter: "{c}%",
+                  formatter: "{c}",
                   textStyle: {
                     color:"#fff",
-                    fontSize: 18,
+                    fontSize: 14,
                   },
                   position: "outside",
                 },
@@ -130,7 +126,7 @@ export default {
               center: leftCenter,
               itemStyle: {
                 normal: {
-                  color: "#333",
+                  color: 'rgba(51,211,248,0.4)',
                 },
               },
               labelLine: {

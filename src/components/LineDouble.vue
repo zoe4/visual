@@ -8,30 +8,44 @@
 <script>
 export default {
   name: "LineDouble",
-  props: {},
+  props: {
+    data: {
+      type: Object,
+      default: () => {},
+    },
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data(val) {
+      this.drawChart(val);
+    },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
-    drawChart() {
+    drawChart(data) {
       let chartDom = this.$refs.lineDouble;
 
       let option = {
-        title: {
-          text: "多线图",
+        // title: {
+        //   text: "多线图",
+        //   textStyle: {
+        //     align: "center",
+        //     color: "#fff",
+        //     fontSize: 20,
+        //   },
+        //   top: "5%",
+        //   left: "center",
+        // },
+        legend: {
+          data: ["报修单", "调拨单"],
+          top: "0%",
+          // right: '0',
           textStyle: {
-            align: "center",
             color: "#fff",
-            fontSize: 20,
+            fontSize: 12,
           },
-          top: "5%",
-          left: "center",
         },
         tooltip: {
           trigger: "axis",
@@ -64,7 +78,7 @@ export default {
         },
         grid: {
           top: "15%",
-          left: "5%",
+          left: "10%",
           right: "5%",
           bottom: "15%",
           // containLabel: true
@@ -76,7 +90,7 @@ export default {
               show: true,
             },
             splitArea: {
-              // show: true,
+              show: false,
               color: "#f00",
               lineStyle: {
                 color: "#f00",
@@ -92,7 +106,7 @@ export default {
               },
             },
             boundaryGap: false,
-            data: ["A", "B", "C", "D", "E", "F"],
+            data: data.xData,
           },
         ],
 
@@ -125,16 +139,16 @@ export default {
         ],
         series: [
           {
-            name: "注册总量",
+            name: "报修单",
             type: "line",
             smooth: false, //是否平滑
             showAllSymbol: true,
             // symbol: 'image://./static/images/guang-circle.png',
             symbol: "circle",
-            symbolSize: 15,
+            symbolSize: 8,
             lineStyle: {
               normal: {
-                color: "#00b3f4",
+                color: "#3158ff",
                 shadowColor: "rgba(0, 0, 0, .3)",
                 shadowBlur: 0,
                 shadowOffsetY: 5,
@@ -149,13 +163,10 @@ export default {
               },
             },
             itemStyle: {
-              color: "#00b3f4",
-              borderColor: "#fff",
-              borderWidth: 3,
-              shadowColor: "rgba(0, 0, 0, .3)",
-              shadowBlur: 0,
-              shadowOffsetY: 2,
-              shadowOffsetX: 2,
+              color: "#fff",
+              borderColor: "#527fff",
+              borderWidth: 2,
+              
             },
             tooltip: {
               show: false,
@@ -166,24 +177,23 @@ export default {
                   "rgba(0,179,244,0.3)",
                   "rgba(0,179,244,0)"
                 ),
-
                 shadowColor: "rgba(0,179,244, 0.9)",
                 shadowBlur: 20,
               },
             },
-            data: [502.84, 205.97, 332.79, 281.55, 398.35, 214.02],
+            data: data.yData1,
           },
           {
-            name: "注册总量",
+            name: "调拨单",
             type: "line",
             smooth: false, //是否平滑
             showAllSymbol: true,
             // symbol: 'image://./static/images/guang-circle.png',
             symbol: "circle",
-            symbolSize: 15,
+            symbolSize: 8,
             lineStyle: {
               normal: {
-                color: "#00ca95",
+                color: "#49f0ff",
                 shadowColor: "rgba(0, 0, 0, .3)",
                 shadowBlur: 0,
                 shadowOffsetY: 5,
@@ -199,13 +209,9 @@ export default {
             },
 
             itemStyle: {
-              color: "#00ca95",
-              borderColor: "#fff",
+              color: "#fff",
+              borderColor: "#81f0c5",
               borderWidth: 3,
-              shadowColor: "rgba(0, 0, 0, .3)",
-              shadowBlur: 0,
-              shadowOffsetY: 2,
-              shadowOffsetX: 2,
             },
             tooltip: {
               show: false,
@@ -220,7 +226,7 @@ export default {
                 shadowBlur: 20,
               },
             },
-            data: [281.55, 398.35, 214.02, 179.55, 289.57, 356.14],
+            data: data.yData2,
           },
         ],
       };

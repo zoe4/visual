@@ -8,31 +8,38 @@
 <script>
 export default {
   name: "LineChart",
-  props: {},
+  props: {
+    data: {
+      type: Object,
+      default: () => {},
+    },
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data(val) {
+      this.drawChart(val);
+    },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
-    drawChart() {
+    drawChart(data) {
       let chartDom = this.$refs.lineChart;
 
+      console.log(data)
+
       let option = {
-        title: {
-          text: "多线图",
-          textStyle: {
-            align: "center",
-            color: "#fff",
-            fontSize: 20,
-          },
-          top: "5%",
-          left: "center",
-        },
+        // title: {
+        //   text: "多线图",
+        //   textStyle: {
+        //     align: "center",
+        //     color: "#fff",
+        //     fontSize: 20,
+        //   },
+        //   top: "5%",
+        //   left: "center",
+        // },
         tooltip: {
           trigger: "axis",
           axisPointer: {
@@ -92,7 +99,7 @@ export default {
               },
             },
             boundaryGap: false,
-            data: ["A", "B", "C", "D", "E", "F"],
+            data: data.xData,
           },
         ],
 
@@ -131,11 +138,11 @@ export default {
             showAllSymbol: true,
             // symbol: 'image://./static/images/guang-circle.png',
             symbol: "circle",
-            symbolSize: 15,
+            symbolSize: 8,
             lineStyle: {
               normal: {
-                color: "#00b3f4",
-                shadowColor: "rgba(0, 0, 0, .3)",
+                color: "#44f0ff",
+                shadowColor: "rgba(0, 0, 0, 0.3)",
                 shadowBlur: 0,
                 shadowOffsetY: 5,
                 shadowOffsetX: 5,
@@ -149,13 +156,9 @@ export default {
               },
             },
             itemStyle: {
-              color: "#00b3f4",
-              borderColor: "#fff",
+              color: "#fff",
+              borderColor: "#00ffd2",
               borderWidth: 3,
-              shadowColor: "rgba(0, 0, 0, .3)",
-              shadowBlur: 0,
-              shadowOffsetY: 2,
-              shadowOffsetX: 2,
             },
             tooltip: {
               show: false,
@@ -171,7 +174,7 @@ export default {
                 shadowBlur: 20,
               },
             },
-            data: [502.84, 205.97, 332.79, 281.55, 398.35, 214.02],
+            data: data.yData,
           }
           
         ],

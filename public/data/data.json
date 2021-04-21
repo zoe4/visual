@@ -1,0 +1,519 @@
+{
+	"status":0,
+	"data": {
+		"week_plan_count": 8,
+		"backlog_repair": 12,
+		"backlog_allotment": 20,
+		"repair_pro_year":[
+			{
+				"eq_name": "装备1",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备2",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备3",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备4",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备5",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备6",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备7",
+				"value": 10.5
+			}
+		],
+		"scrap_pro_year":[
+			{
+				"eq_name": "装备1",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备2",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备3",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备4",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备5",
+				"value": 10.5
+			},
+			{
+				"eq_name": "装备6",
+				"value": 11.5
+			},
+			{
+				"eq_name": "装备7",
+				"value": 10.5
+			}		
+		],
+		"eq_category_count":[
+			{
+				"eq_name": "装备类型1",
+				"value": 122,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			},
+			{
+				"eq_name": "装备类型2",
+				"value": 89,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			},
+			{
+				"eq_name": "装备类型3",
+				"value": 122,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			},
+			{
+				"eq_name": "装备类型4",
+				"value": 122,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			},
+			{
+				"eq_name": "装备类型5",
+				"value": 122,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			},
+			{
+				"eq_name": "装备类型6",
+				"value": 122,
+				"unit": "件",
+				"his_in_store":[
+					{
+						"date" : "2021-03-06",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-05",
+						"count" : 23
+					},
+					{
+						"date" : "2021-03-04",
+						"count" : 20
+					},
+					{
+						"date" : "2021-03-03",
+						"count" : 20
+					}
+				]
+			}
+		
+		],
+		"repair_and_transfer":[
+			{
+				"date":"2021-01",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-02",
+				"repair": 12,
+				"transfer": 10
+			},
+						{
+				"date":"2021-03",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-04",
+				"repair": 12,
+				"transfer": 10
+			},
+						{
+				"date":"2021-05",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-06",
+				"repair": 12,
+				"transfer": 10
+			},
+						{
+				"date":"2021-07",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-08",
+				"repair": 12,
+				"transfer": 10
+			},
+						{
+				"date":"2021-09",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-10",
+				"repair": 12,
+				"transfer": 10
+			},
+						{
+				"date":"2021-11",
+				"repair": 10,
+				"transfer": 15
+			},
+			{
+				"date":"2021-12",
+				"repair": 12,
+				"transfer": 10
+			}
+		],
+		"week_plan_subitem":[
+			{
+				"dep": "1营",
+				"subitem": 25
+			},
+			{
+				"dep": "2营",
+				"subitem": 21
+			},
+			{
+				"dep": "3营",
+				"subitem": 25
+			},
+			{
+				"dep": "4营",
+				"subitem": 21
+			},
+			{
+				"dep": "5营",
+				"subitem": 25
+			},
+			{
+				"dep": "6营",
+				"subitem": 21
+			},	
+			{
+				"dep": "7营",
+				"subitem": 25
+			},
+			{
+				"dep": "8营",
+				"subitem": 21
+			}
+		],
+		"transfer_list":[
+			{
+				"outer":"一营仓库",
+				"inter":"二营仓库",
+				"eq_name": "装备1",
+				"date":"2021-03-01"
+			},
+			{
+				"outer":"一营仓库",
+				"inter":"二营仓库",
+				"eq_name": "装备2",
+				"date":"2021-03-01"
+			},
+			{
+				"outer":"一营仓库",
+				"inter":"二营仓库",
+				"eq_name": "装备3",
+				"date":"2021-03-01"
+			},
+						{
+				"outer":"一营仓库",
+				"inter":"二营仓库",
+				"eq_name": "装备4",
+				"date":"2021-03-01"
+			}
+		],
+		"eq_by_dep":[
+			{
+				"category":"装备类型1",
+				"dep_data":[
+					{
+						"dep":"1营",
+						"count":21
+					},
+					{
+						"dep":"2营",
+						"count":28
+					},
+					{
+						"dep":"3营",
+						"count":21
+					},
+					{
+						"dep":"4营",
+						"count":28
+					},
+					{
+						"dep":"5营",
+						"count":21
+					},
+					{
+						"dep":"6营",
+						"count":28
+					},
+					{
+						"dep":"7营",
+						"count":21
+					},
+					{
+						"dep":"8营",
+						"count":28
+					}
+				]
+			},
+			{
+				"category":"装备类型2",
+				"dep_data":[
+					{
+						"dep":"1营",
+						"count":0
+					},
+					{
+						"dep":"2营",
+						"count":28
+					},
+					{
+						"dep":"3营",
+						"count":21
+					},
+					{
+						"dep":"4营",
+						"count":28
+					},
+					{
+						"dep":"5营",
+						"count":21
+					},
+					{
+						"dep":"6营",
+						"count":28
+					},
+					{
+						"dep":"7营",
+						"count":1
+					},
+					{
+						"dep":"8营",
+						"count":28
+					}
+				]
+			},
+			{
+				"category":"装备类型3",
+				"dep_data":[
+					{
+						"dep":"1营",
+						"count":21
+					},
+					{
+						"dep":"2营",
+						"count":28
+					},
+					{
+						"dep":"3营",
+						"count":60
+					},
+					{
+						"dep":"4营",
+						"count":28
+					},
+					{
+						"dep":"5营",
+						"count":21
+					},
+					{
+						"dep":"6营",
+						"count":3
+					},
+					{
+						"dep":"7营",
+						"count":21
+					},
+					{
+						"dep":"8营",
+						"count":28
+					}
+				]
+			},
+			{
+				"category":"装备类型4",
+				"dep_data":[
+					{
+						"dep":"1营",
+						"count":21
+					},
+					{
+						"dep":"2营",
+						"count":6
+					},
+					{
+						"dep":"3营",
+						"count":21
+					},
+					{
+						"dep":"4营",
+						"count":28
+					},
+					{
+						"dep":"5营",
+						"count":21
+					},
+					{
+						"dep":"6营",
+						"count":8
+					},
+					{
+						"dep":"7营",
+						"count":21
+					},
+					{
+						"dep":"8营",
+						"count":28
+					}
+				]
+			},
+			{
+				"category":"装备类型5",
+				"dep_data":[
+					{
+						"dep":"1营",
+						"count":21
+					},
+					{
+						"dep":"2营",
+						"count":28
+					},
+					{
+						"dep":"3营",
+						"count":21
+					},
+					{
+						"dep":"4营",
+						"count":28
+					},
+					{
+						"dep":"5营",
+						"count":21
+					},
+					{
+						"dep":"6营",
+						"count":4
+					},
+					{
+						"dep":"7营",
+						"count":21
+					},
+					{
+						"dep":"8营",
+						"count":5
+					}
+				]
+			}
+		]
+		
+	}
+}

@@ -1,53 +1,45 @@
 <template>
   <div class="table">
-    <!-- <v-table
-      :columns="tableConfig.columns"
-      :table-data="tableConfig.tableData"
-    ></v-table> -->
-    <!-- <vxe-table :data="tableData">
-      <vxe-table-column type="seq" title="Seq" width="60"></vxe-table-column>
-      <vxe-table-column field="name" title="Name"></vxe-table-column>
-      <vxe-table-column field="sex" title="Sex"></vxe-table-column>
-      <vxe-table-column field="address" title="Address"></vxe-table-column>
-    </vxe-table> -->
 
     <el-table
-    :data="tableData"
-    stripe
-    style="width: 100%">
-    <el-table-column
-      prop="id"
-      label="日期"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="地址">
-    </el-table-column>
-  </el-table>
+      :data="data"
+      stripe
+      style="width: 100%"
+    >
+      <el-table-column
+        prop="outer"
+        label="仓库名称1"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="inter"
+        label="仓库名称2"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="eq_name"
+        label="装备"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+      >
+      </el-table-column>
 
-    
+    </el-table>
 
   </div>
 </template>
 
 <script>
-// import 'vue-easytable/libs/theme-dark/index.css'
-// import {VTable} from 'vue-easytable';
 export default {
   name: "Table",
-  components: {
-    // 'v-table':VTable,
-  },
+  components: {},
   props: {
-    msg: {
-      type: String,
-      default: "",
+    data: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
@@ -56,72 +48,13 @@ export default {
       total: 100,
       columns: [],
       actions: [],
-      tableData: [
-        {
-          id: 10001,
-          name: "Test1",
-          role: "Develop",
-          sex: "Man",
-          address: "Shenzhen",
-        },
-        {
-          id: 10002,
-          name: "Test2",
-          role: "Test",
-          sex: "Man",
-          address: "Guangzhou",
-        },
-        {
-          id: 10003,
-          name: "Test3",
-          role: "PM",
-          sex: "Man",
-          address: "Shanghai",
-        },
-      ],
-      tableConfig: {
-        tableData: [],
-        columns: [
-          {
-            field: "id",
-            title: "编号",
-            width: 50,
-            columnAlign: "center",
-          },
-          {
-            field: "name",
-            title: "姓名",
-            width: 120,
-            columnAlign: "center",
-          },
-          {
-            field: "age",
-            title: "年龄",
-            width: 50,
-            columnAlign: "center",
-          },
-
-          {
-            field: "height",
-            title: "身高",
-            width: 100,
-            columnAlign: "left",
-          },
-          {
-            field: "sex",
-            title: "性别",
-            width: 50,
-            columnAlign: "center",
-          },
-          {
-            field: "score",
-            title: "成绩",
-            width: 80,
-            columnAlign: "center",
-          },
-        ],
-      },
+      
     };
+  },
+  watch: {
+    data(val) {
+      console.log('val',val)
+    },
   },
   created() {},
   methods: {},
@@ -131,5 +64,42 @@ export default {
 
 <style lang="scss" scoped>
 .table {
+  margin-top: 1vh;
+}
+</style>
+<style lang="scss">
+.el-table {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+.el-table thead {
+  color: #fff;
+  padding: 5px 0;
+}
+.el-table th,
+.el-table tr {
+  background-color: rgba(33, 117, 243, 0.2);
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: rgba(33, 117, 243, 0.2);
+}
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: rgba(33, 117, 243, 0.2);
+}
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+.el-table__body {
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+.el-table--border::after,
+.el-table--group::after,
+.el-table::before {
+  background-color: rgba(0, 0, 0, 0);
+}
+.el-table td,
+.el-table th {
+  padding: 5px 0;
 }
 </style>

@@ -8,133 +8,181 @@
 <script>
 export default {
   name: "BarVer",
-  props: {},
+  props: {
+    data: {
+      type: Object,
+      default: () => {},
+    },
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data(val) {
+      this.drawChart(val);
+    },
   },
   mounted() {
     this.drawChart();
   },
   methods: {
-    drawChart() {
+    drawChart(data) {
       let chartDom = this.$refs.barVer;
 
-      let option = {
-        legend: {
-          data: ["采样人数", "检测人数"],
-          top: "5%",
-          // right: '10',
-          textStyle: {
-            color: "rgba(250,250,250,0.6)",
-            fontSize: 16,
-          },
-        },
-        barWidth: 15,
-        xAxis: {
-          type: "category",
-          data: [
-            "天山路街道",
-            "胜利路街道",
-            "昆仑路街道",
-            "银河路街道",
-            "金龙镇街道",
-          ],
-          splitLine: {
-            show: false,
-          },
-          axisTick: {
-            show: false,
-          },
-          axisLine: {
-            //  改变y轴颜色
-            lineStyle: {
-              color: "#26D9FF",
+      // console.log("data1", data);
+      let timedata = [];
+      let name = [];
+      let _data = [];
+      data.forEach(e => {
+        timedata.push(e.category);
+        let xData = [],
+          yData = [];
+        e.dep_data.forEach(k => {
+          xData.push(k.dep);
+          yData.push(k.count);
+
+        })
+        name.push(xData);
+        _data.push(yData);
+
+      })
+
+      let opts = [];
+      
+      for (var i = 0; i < data.length; i++) {
+        // conditions = [
+        //   {
+        //     类别: timedata[i],
+        //   },
+        // ];
+        
+        opts.push({
+          backgroundColor: "#051F54",
+          xAxis: {
+            type: "category",
+            axislabel: {
+              interval: 0,
             },
-          },
-          axisLabel: {
-            //  改变y轴字体颜色和大小
-            //formatter: '{value} m³ ', //  给y轴添加单位
-            textStyle: {
-              color: "rgba(250,250,250,0.6)",
-              fontSize: 16,
+            splitLine: {
+              show: false,
             },
+            data: name[i],
           },
-        },
-        yAxis: {
-          type: "value",
-          splitLine: {
-            lineStyle: {
-              color: "rgba(255,255,255,0.2)",
-            },
-          },
-          axisTick: {
-            show: false,
-          },
-          axisLine: {
-            //  改变x轴颜色
-            lineStyle: {
-              color: "#26D9FF",
-            },
-          },
-          axisLabel: {
-            //  改变x轴字体颜色和大小
-            textStyle: {
-              color: "rgba(250,250,250,0.6)",
-              fontSize: 16,
-            },
-          },
-        },
-        series: [
-          {
+          series: {
             type: "bar",
-            name: "采样人数",
+            barWidth: 15,
             itemStyle: {
+              //图形样式
               normal: {
-                label: {
-                  show: false, //开启显示
-                  position: "right", //在上方显示
-                  textStyle: {
-                    //数值样式
-                    color: "rgba(250,250,250,0.6)",
-                    fontSize: 16,
-                    fontWeight: 600,
-                  },
-                },
-                color: this.$linearColor('rgba(61,126,235,1)','rgba(61,126,235,0)'),
-                
-                borderWidth: 2,
-                barBorderRadius: 15,
+                barBorderRadius: 20,
+                color: this.$linearColor("#1166ff", "#8906dd"),
               },
             },
-            data: [19, 29, 39, 81, 56],
+            name: "人数占比",
+            data: _data[i],
           },
-          {
-            type: "bar",
-            name: "检测人数",
-            itemStyle: {
-              normal: {
-                label: {
-                  show: false, //开启显示
-                  position: "right", //在上方显示
-                  textStyle: {
-                    //数值样式
-                    color: "rgba(250,250,250,0.6)",
-                    fontSize: 16,
-                    fontWeight: 600,
-                  },
-                },
-                color: this.$linearColor('rgba(15,197,243,1)','rgba(15,197,243,0)'),
-                
-                borderWidth: 2,
-                barBorderRadius: 15,
+        });
+      }
+
+      var option = {
+        baseOption: {
+          grid: {
+            left: "10%",
+            top: "18%",
+            bottom: "25%",
+            //height:'50%',
+          },
+          timeline: {
+            axisType: "category",
+            autoPlay: true,
+            //rewind: true,
+            playInterval: 5000,
+            //orient: "vertical",
+            // symbolSize:6,
+            lineStyle: {
+              color: "#fff",
+            },
+            label: {
+              fontSize: 12,
+              textStyle: {
+                color: "#fff",
               },
             },
-            data: [12, 23, 35, 100, 45],
+            checkpointStyle: {
+              color: "#4c647c",
+            },
+            left: "4%",
+            right: "4%",
+            top: "95%",
+            bottom: "13%",
+            //padding: [30, 10, 20, -10],
+            data: timedata,
           },
-        ],
+          legend: {
+            right: "37%",
+            top: "2%",
+            itemWidth: 18,
+            itemHeight: 10,
+            textStyle: {
+              color: "#fff",
+              fontStyle: "normal",
+              fontFamily: "微软雅黑",
+              fontSize: 12,
+            },
+          },
+          calculable: true,
+          xAxis: {
+            type: "category",
+            axisTick: {
+              //坐标轴刻度相关设置。
+              show: false,
+            },
+            axisLine: {
+              //坐标轴轴线相关设置
+              lineStyle: {
+                color: "#fff",
+                opacity: 1,
+              },
+            },
+            axisLabel: {
+              interval: 0,
+              //rotate:40,
+              textStyle: {
+                fontSize: 12,
+                color: "#fff",
+              },
+            },
+            splitLine: {
+              show: false,
+            },
+            data: opts,
+          },
+          yAxis: {
+            type: "value",
+            axisLabel: {
+              textStyle: {
+                color: "#fff",
+                fontStyle: "normal",
+                fontFamily: "微软雅黑",
+                fontSize: 12,
+              },
+            },
+            axisLine: {
+              show: false,
+            },
+            axisTick: {
+              show: false,
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: ["#000"],
+                opacity: 0.06,
+              },
+            },
+          },
+        },
+
+        //图表内数据
+        options: opts,
       };
       this.$initCharts(chartDom, option);
     },
