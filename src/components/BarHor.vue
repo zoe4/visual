@@ -28,7 +28,7 @@ export default {
       let chartDom = this.$refs.barHor;
 
       console.log("data111", data);
-      let bgData = data.yData.map(e => {
+      let bgData = data.yData.map(() => {
         let max = Math.max(...data.yData);
         return max+10
       })
@@ -40,7 +40,7 @@ export default {
         grid: {
           left: "5%",
           right: "5%",
-          bottom: "5%",
+          bottom: "0%",
           top: "10%",
           containLabel: true,
         },
@@ -49,17 +49,16 @@ export default {
           axisPointer: {
             type: "none",
           },
+          backgroundColor:"#264cee",
+          borderWidth: 0 ,
+          textStyle:{
+            color:"#fff",
+            fontSize:12
+          },
           formatter: function (params) {
+            console.log(params)
             return (
-              params[0].name +
-              "<br/>" +
-              "<span style='display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:rgba(36,207,233,0.9)'></span>" +
-              params[0].seriesName +
-              " : " +
-              Number(
-                (params[0].value.toFixed(4) / 10000).toFixed(2)
-              ).toLocaleString() +
-              " 万元<br/>"
+              `${params[0].name}: ${params[0].value}`
             );
           },
         },
@@ -108,7 +107,7 @@ export default {
         ],
         series: [
           {
-            name: "数量",
+            name: "报修率",
             type: "bar",
             zlevel: 1,
             itemStyle: {

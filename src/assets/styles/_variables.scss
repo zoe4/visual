@@ -5,3 +5,16 @@
 
 
 $color:red;
+
+@mixin ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+/*蓝色纵向文字渐变色*/
+@mixin blue-vertical-ramp-color {
+  color: transparent;
+  background: linear-gradient(to bottom, #33a4fc,#1476c8,#045faf,#034f91);
+  -webkit-background-clip: text;
+}

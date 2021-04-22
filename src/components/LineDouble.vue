@@ -41,7 +41,7 @@ export default {
         legend: {
           data: ["报修单", "调拨单"],
           top: "0%",
-          // right: '0',
+          right: '0',
           textStyle: {
             color: "#fff",
             fontSize: 12,
@@ -49,6 +49,12 @@ export default {
         },
         tooltip: {
           trigger: "axis",
+          backgroundColor:"#264cee",
+          borderWidth: 0 ,
+          textStyle:{
+            color:"#fff",
+            fontSize:12
+          },
           axisPointer: {
             lineStyle: {
               color: {
@@ -77,10 +83,10 @@ export default {
           },
         },
         grid: {
-          top: "15%",
+          top: "25%",
           left: "10%",
           right: "5%",
-          bottom: "15%",
+          bottom: "10%",
           // containLabel: true
         },
         xAxis: [
@@ -168,9 +174,6 @@ export default {
               borderWidth: 2,
               
             },
-            tooltip: {
-              show: false,
-            },
             areaStyle: {
               normal: {
                 color: this.$linearColor(
@@ -213,9 +216,6 @@ export default {
               borderColor: "#81f0c5",
               borderWidth: 3,
             },
-            tooltip: {
-              show: false,
-            },
             areaStyle: {
               normal: {
                 color: this.$linearColor(
@@ -239,6 +239,6 @@ export default {
 <style scoped lang="scss">
 .chart-box {
   width: 100%;
-  height: 28vh;
+  height: 32vh;
 }
 </style>

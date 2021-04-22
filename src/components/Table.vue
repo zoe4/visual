@@ -100,6 +100,30 @@ export default {
 }
 .el-table td,
 .el-table th {
-  padding: 5px 0;
+  padding: 2px 0;
 }
+.el-table .cell{
+  white-space: nowrap;
+  font-size: 1.6vh;
+}
+
+.el-table--scrollable-x .el-table__body-wrapper{
+  overflow: hidden;
+}
+
+// .el-table::-webkit-scrollbar {
+//  width: 8px;
+// }
+//  .el-table::-webkit-scrollbar-track {
+//  background-color:red;
+//  -webkit-border-radius: 2em;
+//  -moz-border-radius: 2em;
+//  border-radius:2em;
+// }
+//  .el-table::-webkit-scrollbar-thumb {
+//  background-color:green;
+//  -webkit-border-radius: 2em;
+//  -moz-border-radius: 2em;
+//  border-radius:2em;
+// }
 </style>

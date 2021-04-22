@@ -30,18 +30,15 @@ export default {
       console.log(data)
 
       let option = {
-        // title: {
-        //   text: "多线图",
-        //   textStyle: {
-        //     align: "center",
-        //     color: "#fff",
-        //     fontSize: 20,
-        //   },
-        //   top: "5%",
-        //   left: "center",
-        // },
+        
         tooltip: {
           trigger: "axis",
+          backgroundColor:"#1198b9",
+          borderWidth: 0 ,
+          textStyle:{
+            color:"#fff",
+            fontSize:12
+          },
           axisPointer: {
             lineStyle: {
               color: {
@@ -71,7 +68,7 @@ export default {
         },
         grid: {
           top: "15%",
-          left: "5%",
+          left: "10%",
           right: "5%",
           bottom: "15%",
           // containLabel: true
@@ -132,7 +129,7 @@ export default {
         ],
         series: [
           {
-            name: "注册总量",
+            name: "数量",
             type: "line",
             smooth: true, //是否平滑
             showAllSymbol: true,
@@ -160,9 +157,7 @@ export default {
               borderColor: "#00ffd2",
               borderWidth: 3,
             },
-            tooltip: {
-              show: false,
-            },
+            
             areaStyle: {
               normal: {
                 color: this.$linearColor(
@@ -188,6 +183,6 @@ export default {
 <style scoped lang="scss">
 .chart-box {
   width: 100%;
-  height: 28vh;
+  height: 26vh;
 }
 </style>

@@ -27,8 +27,13 @@ export default {
     drawChart(data) {
       let chartDom = this.$refs.pie;
 
-      
       let colorList = [
+        "#0eceff",
+        "#264cee",
+        "#5e2ae8",
+        "#3a15d8",
+        "#0040f9",
+        "#0e74ff",
         "#0eceff",
         "#264cee",
         "#5e2ae8",
@@ -46,42 +51,53 @@ export default {
           },
         },
       };
-      let leftCenter = ["50%", "50%"],
-        radius1 = ["40%", "60%"], // 饼图
-        radius3 = ["75%", "80%"], // 线圈
+      let leftCenter = ["50%", "60%"],
+        radius1 = ["35%", "55%"], // 饼图
+        radius3 = ["66%", "70%"], // 线圈
         // 公用调整-end
 
         option = {
           tooltip: {
             trigger: "item",
+            backgroundColor: "rgba(21, 59, 125, .9)",
+            borderWidth: 0,
+            textStyle: {
+              color: "#fff",
+              fontSize: 12,
+            },
           },
           title: [
             {
               text: "+10%",
-              x: "50%",
-              y: "40%",
+              x: "43%",
+              y: "52%",
               textStyle: {
                 color: "#0e74ff",
-                fontSize: 20,
+                fontSize: 18,
               },
             },
             {
               text: "同比",
-              x: "50%",
-              y: "55%",
+              x: "46%",
+              y: "62%",
               textStyle: {
                 color: "#fff",
-                fontSize: 14,
+                fontSize: 12,
               },
             },
           ],
           legend: {
             top: "0",
-            right: "0%",
+            right: "0",
+            left: "40%",
             textStyle: {
               color: "#f2f2f2",
               fontSize: 12,
             },
+            itemWidth: 16,
+            itemHeight: 8,
+            borderRadius: 16,
+            itemGap: 5,
             icon: "roundRect",
             data: data,
           },
@@ -98,7 +114,7 @@ export default {
                 show: false,
                 normal: {
                   length: 20,
-                  length2: 10,
+                  length2: 30,
                   lineStyle: {
                     color: "#fff",
                   },
@@ -109,7 +125,7 @@ export default {
                   show: true,
                   formatter: "{c}",
                   textStyle: {
-                    color:"#fff",
+                    color: "#fff",
                     fontSize: 14,
                   },
                   position: "outside",
@@ -126,7 +142,7 @@ export default {
               center: leftCenter,
               itemStyle: {
                 normal: {
-                  color: 'rgba(51,211,248,0.4)',
+                  color: "rgba(51,211,248,0.4)",
                 },
               },
               labelLine: {
@@ -148,6 +164,6 @@ export default {
 <style scoped lang="scss">
 .chart-box {
   width: 100%;
-  height: 28vh;
+  height: 32vh;
 }
 </style>

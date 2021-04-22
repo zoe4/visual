@@ -10,8 +10,8 @@ export default {
   name: "BarVer",
   props: {
     data: {
-      type: Object,
-      default: () => {},
+      type: Array,
+      default: () => [],
     },
   },
 
@@ -21,7 +21,7 @@ export default {
     },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
     drawChart(data) {
@@ -31,31 +31,46 @@ export default {
       let timedata = [];
       let name = [];
       let _data = [];
-      data.forEach(e => {
+      data.forEach((e) => {
         timedata.push(e.category);
         let xData = [],
           yData = [];
-        e.dep_data.forEach(k => {
+        e.dep_data.forEach((k) => {
           xData.push(k.dep);
           yData.push(k.count);
-
-        })
+        });
         name.push(xData);
         _data.push(yData);
-
-      })
+      });
 
       let opts = [];
-      
+
       for (var i = 0; i < data.length; i++) {
         // conditions = [
         //   {
         //     类别: timedata[i],
         //   },
         // ];
-        
+
         opts.push({
-          backgroundColor: "#051F54",
+          legend: {
+            data: ["数量"],
+            top: "0%",
+            right: "0",
+            textStyle: {
+              color: "#fff",
+              fontSize: 12,
+            },
+          },
+          toolTip: {
+            trigger: "axis",
+            backgroundColor: "#264cee",
+            borderWidth: 0,
+            textStyle: {
+              color: "#fff",
+              fontSize: 12,
+            },
+          },
           xAxis: {
             type: "category",
             axislabel: {
@@ -63,8 +78,34 @@ export default {
             },
             splitLine: {
               show: false,
+              lineStyle: {
+                color: "rgba(255,255,255,0.1)",
+              },
             },
             data: name[i],
+          },
+          yAxis: {
+            type: "value",
+            axisLabel: {
+              textStyle: {
+                color: "#fff",
+                fontStyle: "normal",
+                fontFamily: "微软雅黑",
+                fontSize: 12,
+              },
+            },
+            axisLine: {
+              show: false,
+            },
+            axisTick: {
+              show: false,
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: "rgba(255,255,255,0.9)",
+              },
+            },
           },
           series: {
             type: "bar",
@@ -76,7 +117,7 @@ export default {
                 color: this.$linearColor("#1166ff", "#8906dd"),
               },
             },
-            name: "人数占比",
+            name: "数量",
             data: _data[i],
           },
         });
@@ -87,14 +128,14 @@ export default {
           grid: {
             left: "10%",
             top: "18%",
-            bottom: "25%",
+            bottom: "30%",
             //height:'50%',
           },
           timeline: {
             axisType: "category",
             autoPlay: true,
             //rewind: true,
-            playInterval: 5000,
+            playInterval: 3000,
             //orient: "vertical",
             // symbolSize:6,
             lineStyle: {
@@ -112,7 +153,7 @@ export default {
             left: "4%",
             right: "4%",
             top: "95%",
-            bottom: "13%",
+            bottom: "15%",
             //padding: [30, 10, 20, -10],
             data: timedata,
           },
@@ -144,14 +185,17 @@ export default {
             },
             axisLabel: {
               interval: 0,
-              //rotate:40,
               textStyle: {
                 fontSize: 12,
                 color: "#fff",
               },
             },
+
             splitLine: {
-              show: false,
+              show: true,
+              lineStyle: {
+                color: "rgba(255,255,255,0.1)",
+              },
             },
             data: opts,
           },
@@ -193,6 +237,6 @@ export default {
 <style scoped lang="scss">
 .chart-box {
   width: 100%;
-  height: 28vh;
+  height: 32vh;
 }
 </style>

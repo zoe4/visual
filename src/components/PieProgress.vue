@@ -8,15 +8,28 @@
 <script>
 export default {
   name: "PieProgress",
-  props: {},
+  props: {
+    colorList:{
+      type:Object,
+      default:()=> {}
+    },
+    title:{
+       type:String,
+      default:()=> ''
+    },
+    data:{
+       type:Number,
+      default:()=> 0
+    }
+  },
 
   watch: {
-    // diseasesKeys() {
-    //   this.drawChart();
-    // },
+    data() {
+      this.drawChart();
+    },
   },
   mounted() {
-    this.drawChart();
+    // this.drawChart();
   },
   methods: {
     drawChart() {
@@ -25,29 +38,29 @@ export default {
       let option = {
         title: [
           {
-            text: "已完成",
+            text: this.title,
             x: "center",
             top: "55%",
             textStyle: {
               color: "#FFFFFF",
-              fontSize: 16,
+              fontSize: 12,
               fontWeight: "100",
             },
           },
           {
-            text: "75%",
+            text: this.data,
             x: "center",
             top: "38%",
             textStyle: {
-              fontSize: "20",
-              color: "#FFFFFF",
+              fontSize: 28,
+              color: this.colorList.color2,
               fontFamily: "DINAlternate-Bold, DINAlternate",
               foontWeight: "600",
             },
           },
         ],
         polar: {
-          radius: ["60%", "70%"],
+          radius: ["80%", "90%"],
           center: ["50%", "50%"],
         },
         angleAxis: {
@@ -75,45 +88,70 @@ export default {
             barWidth: 90,
             showBackground: true,
             backgroundStyle: {
-              color: "rgba(66, 66, 66, .3)",
+              color: this.colorList.color1,
             },
-            data: [60],
+            data: [25],
             coordinateSystem: "polar",
 
             itemStyle: {
               normal: {
-                color: this.$linearColor('#ffed00','#ff8104')
+                color: this.$linearColor(this.colorList.color2,this.colorList.color3)
               },
             },
           },
+          // {
+          //   name: "",
+          //   type: "pie",
+          //   startAngle: 80,
+          //   radius: ["40%"],
+          //   hoverAnimation: false,
+          //   center: ["50%", "50%"],
+          //   itemStyle: {
+          //     color: "rgba(66, 66, 66, .1)",
+          //     borderWidth: 1,
+          //     borderColor: "#5269EE",
+          //   },
+          //   data: [100],
+          // },
           {
             name: "",
             type: "pie",
             startAngle: 80,
-            radius: ["90%"],
+            radius: ["70%"],
             hoverAnimation: false,
             center: ["50%", "50%"],
             itemStyle: {
-              color: "rgba(66, 66, 66, .1)",
-              borderWidth: 1,
-              borderColor: "#5269EE",
-            },
-            data: [100],
-          },
-          {
-            name: "",
-            type: "pie",
-            startAngle: 80,
-            radius: ["60%"],
-            hoverAnimation: false,
-            center: ["50%", "50%"],
-            itemStyle: {
-              color: "rgba(66, 66, 66, .1)",
+              color: "rgba(21, 59, 125, .46)",
               borderWidth: 0,
               borderColor: "#5269EE",
             },
             data: [100],
           },
+          // {
+          //   name: "ring5", // 蓝色
+          //   type: "custom",
+          //   coordinateSystem: "none",
+          //   renderItem: function (params, api) {
+          //     let x0 = api.getWidth() / 2;
+          //     let y0 = api.getHeight() / 2;
+          //     let r = (Math.min(api.getWidth(), api.getHeight()) / 2) * 0.40;
+          //     let point = getCirlPoint(x0, y0, r, 30 + angle);
+          //     return {
+          //       type: "circle",
+          //       shape: {
+          //         cx: point.x,
+          //         cy: point.y,
+          //         r: 6,
+          //       },
+          //       style: {
+          //         stroke: "#00eff0", //绿
+          //         fill: "#00eff0",
+          //       },
+          //       silent: true,
+          //     };
+          //   },
+          //   data: [0],
+          // },
         ],
       };
       this.$initCharts(chartDom, option);
@@ -126,5 +164,6 @@ export default {
 .chart-box {
   width: 100%;
   height: 20vh;
+  padding: 1vh;
 }
 </style>
